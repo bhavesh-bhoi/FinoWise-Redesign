@@ -125,7 +125,7 @@ body {
         background-color: var(--color-background);
         color: var(--color-primary-dark);
         font-family: var(--font-sans);
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     h1,
@@ -146,10 +146,10 @@ body {
         color: white;
     }
 
-    /* Modern Scrollbar */
+    /* Scrollbar */
     ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
     }
 
     ::-webkit-scrollbar-track {
@@ -173,45 +173,72 @@ body {
         max-width: 1280px;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     @media (min-width: 640px) {
         .container-custom {
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
         }
     }
 
     @media (min-width: 1024px) {
         .container-custom {
-            padding-left: 3rem;
-            padding-right: 3rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
     }
 
+    /* Minimal section padding */
     .section-padding {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     @media (min-width: 768px) {
         .section-padding {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
         }
     }
 
-    /* Modern Card Styles */
+    @media (min-width: 1024px) {
+        .section-padding {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+    }
+
+    /* minimal padding for specific sections */
+    .section-padding-sm {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .section-padding-sm {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    /* No padding for sections */
+    .section-padding-none {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    /* Card Styles */
     .card-modern {
-        @apply bg-white rounded-3xl transition-all duration-500;
-        box-shadow: 0 20px 40px -15px rgba(26, 46, 63, 0.08);
+        @apply bg-white rounded-2xl transition-all duration-500;
+        box-shadow: 0 10px 30px -10px rgba(26, 46, 63, 0.08);
     }
 
     .card-modern:hover {
-        box-shadow: 0 30px 50px -20px rgba(26, 46, 63, 0.15);
-        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -15px rgba(26, 46, 63, 0.15);
+        transform: translateY(-3px);
     }
 
     /* Gradient Text Styles */
@@ -244,8 +271,8 @@ body {
 
     /* Button Styles */
     .btn-primary-modern {
-        @apply relative overflow-hidden bg-primary text-white px-8 py-4 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2;
-        box-shadow: 0 10px 20px -8px rgba(26, 46, 63, 0.3);
+        @apply relative overflow-hidden bg-primary text-white px-6 py-3 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm;
+        box-shadow: 0 8px 15px -6px rgba(26, 46, 63, 0.3);
     }
 
     .btn-primary-modern::before {
@@ -258,18 +285,18 @@ body {
     }
 
     .btn-primary-modern:hover {
-        @apply -translate-y-1;
-        box-shadow: 0 20px 30px -10px rgba(26, 46, 63, 0.4);
+        @apply -translate-y-0.5;
+        box-shadow: 0 15px 25px -8px rgba(26, 46, 63, 0.4);
     }
 
     .btn-accent-modern {
-        @apply relative overflow-hidden bg-accent text-white px-8 py-4 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2;
-        box-shadow: 0 10px 20px -8px rgba(217, 79, 43, 0.3);
+        @apply relative overflow-hidden bg-accent text-white px-6 py-3 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm;
+        box-shadow: 0 8px 15px -6px rgba(217, 79, 43, 0.3);
     }
 
     .btn-accent-modern:hover {
-        @apply -translate-y-1 bg-accent-light;
-        box-shadow: 0 20px 30px -10px rgba(217, 79, 43, 0.4);
+        @apply -translate-y-0.5 bg-accent-light;
+        box-shadow: 0 15px 25px -8px rgba(217, 79, 43, 0.4);
     }
 
     /* Glass Effect */
@@ -281,11 +308,11 @@ body {
 
     /* Section Title */
     .section-title {
-        @apply text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4;
+        @apply text-2xl md:text-3xl lg:text-4xl font-bold font-display mb-2;
     }
 
     .section-subtitle {
-        @apply text-accent font-medium tracking-wide uppercase text-sm mb-3;
+        @apply text-accent font-medium tracking-wide uppercase text-xs mb-2;
     }
 }
 
@@ -324,7 +351,15 @@ body {
 
     /* Number Highlight */
     .number-highlight {
-        @apply font-display font-bold text-4xl md:text-5xl text-primary;
+        @apply font-display font-bold text-3xl md:text-4xl text-primary;
         text-shadow: 2px 2px 0 var(--color-highlight);
+    }
+
+    .section-border-top {
+        @apply border-t border-gray-100;
+    }
+
+    .section-border-bottom {
+        @apply border-b border-gray-100;
     }
 }
