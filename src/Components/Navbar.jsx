@@ -30,6 +30,7 @@ const Navbar = () => {
             ? "bg-white/90 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         } ${isScrolled ? "py-4" : "py-6"}`}
+        style={{ top: "40px" }} // Add offset for topbar
       >
         <div className="container-custom">
           <div className="flex items-center justify-between">
@@ -91,6 +92,7 @@ const Navbar = () => {
           className={`absolute right-0 top-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-500 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
+          style={{ top: "40px" }} // Add offset for topbar
         >
           <div className="p-6">
             <div className="text-2xl font-bold mb-8">

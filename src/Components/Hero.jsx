@@ -9,7 +9,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-40 pb-16 overflow-hidden">
       {/* Floating Blob */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="floating-blob w-96 h-96 bg-primary/20 left-1/4 top-1/4 animate-float" />
