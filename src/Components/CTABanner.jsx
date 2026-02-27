@@ -1,57 +1,50 @@
 import { ArrowRight, Sparkles } from "lucide-react";
-import Button from "./Button";
 
 const CTABanner = () => {
   return (
-    <section className="relative py-20 overflow-hidden bg-primary">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-primary via-primary-dark to-secondary">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-slow animation-delay-200"></div>
+      </div>
+
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto text-center text-white">
           {/* Sparkle Icon */}
           <div className="flex justify-center mb-6">
-            <Sparkles size={40} className="text-accent" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/20 blur-xl rounded-full"></div>
+              <Sparkles
+                size={48}
+                className="relative text-accent animate-pulse"
+              />
+            </div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Take Control of Your Financial Future?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+            Let's initiate your{" "}
+            <span className="text-accent">financial consultation</span>{" "}
+            adventure.
           </h2>
 
-          <p className="text-xl text-white/80 mb-10 leading-relaxed">
-            Join hundreds of satisfied clients who have achieved their financial
-            goals with our expert guidance.
+          <p className="text-xl text-white/80 mb-8">
+            Kickstart your financial success with our{" "}
+            <span className="font-bold text-accent-light">
+              expert consultation.
+            </span>
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button variant="accent" size="lg" className="group">
-              Schedule Free Consultation
-              <ArrowRight
-                className="ml-2 group-hover:translate-x-1 transition-transform"
-                size={20}
-              />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white/10 text-white border-white/30 hover:bg-white/20"
-            >
-              View Pricing
-            </Button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-white/70">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-              <span>No commitment required</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-              <span>30-minute strategy session</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-              <span>100% confidential</span>
-            </div>
-          </div>
+          <a
+            href="#consultation"
+            className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-light transition-all hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-1 group"
+          >
+            <span>Schedule a free consultation</span>
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </a>
         </div>
       </div>
     </section>

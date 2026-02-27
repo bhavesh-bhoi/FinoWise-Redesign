@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
 import {
   MapPin,
   Phone,
   Mail,
-  ArrowUp,
   Facebook,
   Twitter,
   Linkedin,
   Instagram,
-  Youtube,
+  ChevronRight,
+  ArrowUp,
 } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -29,187 +29,278 @@ const Footer = () => {
   const offices = [
     {
       city: "Mumbai",
-      address: "Bandra Kurla Complex, Mumbai - 400051",
-      phone: "+91 22 1234 5678",
+      address:
+        "2nd Floor, Tharani Business Center, Andheri East, Mumbai - 400059",
+      phone: "+91 91376 54191",
     },
     {
-      city: "Delhi",
-      address: "Connaught Place, New Delhi - 110001",
-      phone: "+91 11 2345 6789",
+      city: "Pune",
+      address: "F6, East Court Phoenix Market City, Viman Nagar, Pune - 411014",
+      phone: "+91 93253 68349",
     },
     {
-      city: "Bangalore",
-      address: "Indiranagar, Bangalore - 560038",
-      phone: "+91 80 3456 7890",
+      city: "Bengaluru",
+      address: "Office No.1, Datha Square, Nayandahalli, Bengaluru - 560039",
+      phone: "+91 99874 45658",
+    },
+    {
+      city: "New Delhi",
+      address: "505, Mansarovar Building, Nehru Place, New Delhi - 110019",
+      phone: "+91 98100 31651",
+    },
+    {
+      city: "Varanasi",
+      address: "69 & 75, Kuber Complex, Rathyatra, Varanasi - 221010",
+      phone: "+91 99365 00610",
     },
   ];
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
+    { name: "Our USP", href: "#usp" },
     { name: "Services", href: "#services" },
     { name: "Workshops", href: "#workshops" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  const resources = [
     { name: "Blog", href: "#" },
-    { name: "Careers", href: "#" },
+    { name: "Calculators", href: "#" },
+    { name: "E-books", href: "#" },
+    { name: "Webinars", href: "#" },
   ];
 
   const legal = [
     { name: "Privacy Policy", href: "#" },
     { name: "Terms of Use", href: "#" },
-    { name: "Disclaimer", href: "#" },
-    { name: "Compliance", href: "#" },
-    { name: "Grievance Redressal", href: "#" },
+    { name: "Disclosure", href: "#" },
+    { name: "Code of Conduct", href: "#" },
   ];
 
-  const socialIcons = [
-    { icon: Facebook, name: "Facebook", href: "#" },
-    { icon: Twitter, name: "Twitter", href: "#" },
-    { icon: Linkedin, name: "LinkedIn", href: "#" },
-    { icon: Instagram, name: "Instagram", href: "#" },
-    { icon: Youtube, name: "YouTube", href: "#" },
-  ];
+  const regulators = ["NSE", "BSE", "SEBI", "RBI", "CDSL", "NCDEX", "MCX"];
 
   return (
-    <footer className="bg-background-dark text-gray-300 relative">
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Offices */}
+    <footer className="bg-primary-dark text-gray-300 relative">
+      {/* Top Border Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-secondary to-accent"></div>
+
+      <div className="container-custom pt-12 pb-6">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+          {/* Company Info */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Our Offices</h3>
-            <div className="space-y-6">
-              {offices.map((office) => (
-                <div key={office.city} className="space-y-2">
-                  <h4 className="text-accent font-semibold">{office.city}</h4>
-                  <div className="flex items-start gap-3 group">
-                    <MapPin
-                      size={18}
-                      className="text-gray-500 mt-1 group-hover:text-accent transition-colors"
-                    />
-                    <p className="text-sm leading-relaxed">{office.address}</p>
-                  </div>
-                  <div className="flex items-center gap-3 group">
-                    <Phone
-                      size={14}
-                      className="text-gray-500 group-hover:text-accent transition-colors"
-                    />
-                    <a
-                      href={`tel:${office.phone}`}
-                      className="text-sm hover:text-accent transition-colors"
-                    >
-                      {office.phone}
-                    </a>
-                  </div>
-                </div>
-              ))}
+            <h3 className="text-white font-bold text-lg font-display mb-4">
+              Finowise
+            </h3>
+            <p className="text-xs text-accent mb-4 tracking-wider">
+              BE WISE &gt; BE WEALTHY &gt; BE HAPPY
+            </p>
+            <p className="text-sm text-gray-400 mb-4">
+              AMFI Registered Mutual Fund Distributor with a mission to educate,
+              inspire and empower.
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Facebook
+                  size={14}
+                  className="text-gray-400 hover:text-white"
+                />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Twitter size={14} className="text-gray-400 hover:text-white" />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Linkedin
+                  size={14}
+                  className="text-gray-400 hover:text-white"
+                />
+              </a>
+              <a
+                href="#"
+                className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Instagram
+                  size={14}
+                  className="text-gray-400 hover:text-white"
+                />
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="inline-block hover:text-accent transition-colors relative group"
+                    className="text-sm text-gray-400 hover:text-accent transition-colors inline-flex items-center gap-1"
                   >
+                    <ChevronRight
+                      size={12}
+                      className="opacity-0 -ml-2 group-hover:opacity-100 transition-all"
+                    />
                     {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Resources */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Legal</h3>
-            <ul className="space-y-3">
+            <h4 className="text-white font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              {resources.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-gray-400 hover:text-accent transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-white font-semibold mt-6 mb-4">Legal</h4>
+            <ul className="space-y-2">
               {legal.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="inline-block hover:text-accent transition-colors relative group"
+                    className="text-sm text-gray-400 hover:text-accent transition-colors"
                   >
                     {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Newsletter & Social */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">
-              Stay Connected
-            </h3>
-            <p className="text-sm mb-4">
-              Subscribe to our newsletter for financial insights and updates.
-            </p>
-
-            <form className="mb-6">
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l-xl focus:outline-none focus:border-accent text-white placeholder-gray-500"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-3 bg-accent text-white rounded-r-xl hover:bg-accent-light transition-colors"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
-
-            {/* Social Icons */}
-            <div className="flex gap-3">
-              {socialIcons.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-accent transition-colors group"
-                    aria-label={social.name}
-                  >
-                    <Icon
-                      size={18}
-                      className="group-hover:scale-110 transition-transform"
-                    />
-                  </a>
-                );
-              })}
+            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+            <div className="space-y-3 mb-4">
+              <a
+                href="tel:+919137654191"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-accent transition-colors"
+              >
+                <Phone size={14} />
+                +91 91376 54191
+              </a>
+              <a
+                href="mailto:connect@finowise.in"
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-accent transition-colors"
+              >
+                <Mail size={14} />
+                connect@finowise.in
+              </a>
+            </div>
+            <div className="bg-white/5 rounded-xl p-4">
+              <p className="text-xs text-gray-400 mb-2">Grievance Contact</p>
+              <a href="tel:+919137654191" className="text-sm text-accent block">
+                91376 54191
+              </a>
+              <a
+                href="mailto:info@finwise.in"
+                className="text-sm text-accent block"
+              >
+                info@finwise.in
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-white/10 my-10"></div>
+        {/* Offices Grid */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <h4 className="text-white font-semibold mb-4">Our Offices</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {offices.map((office) => (
+              <div key={office.city} className="bg-white/5 rounded-lg p-3">
+                <h5 className="text-white font-medium text-sm mb-1">
+                  {office.city}
+                </h5>
+                <p className="text-xs text-gray-400 mb-1 line-clamp-2">
+                  {office.address}
+                </p>
+                <a
+                  href={`tel:${office.phone}`}
+                  className="text-xs text-accent hover:underline"
+                >
+                  {office.phone}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        {/* Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>&copy; 2024 Finowise Freedom Group. All rights reserved.</p>
-          <p className="mt-4 md:mt-0">
-            AMFI Registered: ARN-123456 | SEBI Registration: INZ000123456
-          </p>
+        {/* Regulators */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {regulators.map((reg) => (
+              <span
+                key={reg}
+                className="text-xs sm:text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full"
+              >
+                {reg}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Risk Disclosure */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="bg-white/5 rounded-xl p-4 sm:p-6">
+            <p className="text-xs text-gray-400 leading-relaxed">
+              <span className="font-bold text-accent">Risk Factors –</span>{" "}
+              Investments in Mutual Funds are subject to Market Risks. Read all
+              scheme related documents carefully before investing. Mutual Fund
+              Schemes do not assure or guarantee any returns. Past performances
+              may or may not be sustained in future. We deal in Regular Plans
+              only and earn Trailing Commission. Option of Direct Plan is
+              available with lower expense ratio.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="text-xs text-gray-600 text-center sm:text-left">
+              <p>AMFI Registered: ARN-263895 | Valid till: 08/02/2026</p>
+              <p className="mt-1">
+                © Copyright Finowise Freedom LLP. All Rights Reserved.
+              </p>
+            </div>
+            <p className="text-xs text-gray-600">
+              Developed by:{" "}
+              <span className="text-accent">Svojlas Technologies</span>
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-accent-light hover:scale-110 ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 bg-accent text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-accent-light hover:scale-110 ${
           showBackToTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-10 pointer-events-none"
         }`}
         aria-label="Back to top"
       >
-        <ArrowUp size={20} />
+        <ArrowUp size={18} />
       </button>
     </footer>
   );

@@ -20,7 +20,7 @@ const HeroCarousel = () => {
   }, []);
 
   return (
-    <div className="relative rounded-2xl overflow-hidden border border-border shadow-sm h-[520px]">
+    <div className="relative rounded-2xl overflow-hidden border border-border shadow-sm h-[260px] sm:h-[340px] lg:h-[520px]">
       {images.map((img, index) => (
         <img
           key={index}

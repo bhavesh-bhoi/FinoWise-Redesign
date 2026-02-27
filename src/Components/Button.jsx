@@ -1,5 +1,3 @@
-import { clsx } from "clsx";
-
 const Button = ({
   children,
   variant = "primary",
@@ -7,20 +5,18 @@ const Button = ({
   className = "",
   onClick,
   type = "button",
+  fullWidth = false,
   ...props
 }) => {
-  const baseStyles =
-    "relative inline-flex items-center justify-center font-medium rounded-2xl transition-all duration-300 overflow-hidden group";
-
   const variants = {
     primary:
-      "bg-primary text-white hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20 active:scale-95",
+      "bg-primary text-white hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20",
     secondary:
-      "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/20 active:scale-95",
+      "bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-white",
     accent:
-      "bg-accent text-white hover:bg-accent-light hover:shadow-lg hover:shadow-accent/20 active:scale-95",
+      "bg-accent text-white hover:bg-accent-light hover:shadow-lg hover:shadow-accent/20",
     outline:
-      "border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary hover:shadow-lg active:scale-95",
+      "bg-transparent text-gray-700 border border-gray-300 hover:border-primary hover:text-primary",
   };
 
   const sizes = {
@@ -32,12 +28,16 @@ const Button = ({
   return (
     <button
       type={type}
-      className={clsx(baseStyles, variants[variant], sizes[size], className)}
+      className={`relative overflow-hidden rounded-full font-medium transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 ${
+        variants[variant]
+      } ${sizes[size]} ${fullWidth ? "w-full" : ""} ${className}`}
       onClick={onClick}
       {...props}
     >
-      {children}
-      <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        {children}
+      </span>
+      <span className="absolute inset-0 bg-white/20 translate-x-[-100%] hover:translate-x-0 transition-transform duration-500"></span>
     </button>
   );
 };

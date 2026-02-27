@@ -36,7 +36,7 @@ const TrustBar = () => {
   };
 
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section className="py-16 bg-background-alt overflow-hidden">
       <div className="container-custom mb-8">
         <p className="text-center text-muted text-sm uppercase tracking-wider font-medium">
           Trusted by Regulators & Partners

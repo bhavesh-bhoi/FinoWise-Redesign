@@ -1,95 +1,108 @@
-import { Eye, Target, ArrowRight } from "lucide-react";
-import Button from "./Button";
+import { Eye, Target, Heart, Sparkles, ArrowRight } from "lucide-react";
 
 const VisionMission = () => {
   return (
-    <section className="section-padding bg-background relative overflow-hidden">
-      {/* Decorative Pattern */}
+    <section
+      id="vision-mission"
+      className="section-padding bg-white relative overflow-hidden"
+    >
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-primary rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full filter blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-accent rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary rounded-full blur-2xl"></div>
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Image */}
-          <div className="relative group">
-            <div className="relative rounded-[2rem] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Vision & Mission"
-                className="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent"></div>
-            </div>
+        <div className="text-center mb-12">
+          <span className="section-subtitle">OUR PURPOSE</span>
+          <h2 className="section-title gradient-text-primary">
+            Vision & Mission
+          </h2>
+        </div>
 
-            {/* Circular Decoration */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Vision Card */}
+          <div className="card-modern p-8 md:p-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="relative">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                <Eye className="text-primary" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold font-display text-primary mb-4">
+                Vision
+              </h3>
+              <p className="text-xl text-muted leading-relaxed mb-6">
+                Empowering people to live and experience{" "}
+                <span className="highlight-peach font-bold">
+                  Happy and Freedom Life
+                </span>
+              </p>
+              <div className="flex items-center gap-2 text-primary">
+                <Sparkles size={16} className="animate-pulse" />
+                <span className="text-sm font-medium">
+                  Inspiring since 2022
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Right Content */}
-          <div className="space-y-8">
-            <div className="space-y-4 animate-slide-in">
-              <span className="text-accent font-semibold tracking-wider uppercase text-sm">
-                Our Purpose
+          {/* Mission Card */}
+          <div className="card-modern p-8 md:p-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="relative">
+              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="text-accent" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold font-display text-accent mb-4">
+                Mission
+              </h3>
+              <p className="text-lg text-muted leading-relaxed">
+                We are on a Mission to{" "}
+                <span className="font-bold text-accent">
+                  Educate, Inspire and Empower
+                </span>{" "}
+                People to Live and Experience a Happy & Freedom Life by
+                Empowering Them to Get the{" "}
+                <span className="highlight-mint font-bold">
+                  right Amount of Money at the Right Point of Time
+                </span>{" "}
+                Through Our Unique Programs, Products, Process, Strategies,
+                Services and Solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Workshop CTA - Modern Design */}
+        <div className="mt-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl blur-2xl opacity-30"></div>
+          <div className="relative bg-gradient-to-r from-primary to-secondary text-white p-8 md:p-12 rounded-3xl overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-20 -mb-20"></div>
+
+            <div className="relative z-10 text-center max-w-3xl mx-auto">
+              <span className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm mb-4">
+                Limited Time Offer
               </span>
-
-              <h2 className="text-4xl md:text-5xl font-bold">
-                Shaping Financial
-                <span className="gradient-text block">Futures Together</span>
-              </h2>
-            </div>
-
-            {/* Vision Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Eye className="text-primary" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">Our Vision</h3>
-                  <p className="text-muted leading-relaxed">
-                    To be the most trusted partner in financial wellness,
-                    empowering individuals and families to achieve lasting
-                    prosperity through innovative solutions and unwavering
-                    integrity.
-                  </p>
-                </div>
-              </div>
-
-              {/* Gradient underline */}
-              <div className="mt-4 ml-16 w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
-            </div>
-
-            {/* Mission Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Target className="text-accent" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">Our Mission</h3>
-                  <p className="text-muted leading-relaxed">
-                    Deliver personalized financial strategies that simplify
-                    complexity, maximize growth potential, and provide peace of
-                    mind through every stage of life's journey.
-                  </p>
-                </div>
-              </div>
-
-              {/* Gradient underline */}
-              <div className="mt-4 ml-16 w-20 h-1 bg-gradient-to-r from-accent to-primary rounded-full"></div>
-            </div>
-
-            {/* CTA */}
-            <div className="pt-4">
-              <Button variant="primary" size="lg">
-                Discover Our Story
+              <h3 className="text-3xl md:text-4xl font-bold font-display mb-4">
+                Financial Transformation Workshop
+              </h3>
+              <p className="text-xl text-white/90 mb-8">
+                Do you want to get your{" "}
+                <span className="font-bold underline decoration-2 decoration-accent-light">
+                  Personal Freedom Free WHealth Check Report?
+                </span>
+              </p>
+              <a
+                href="#consultation"
+                className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-light transition-all hover:shadow-xl hover:shadow-accent/30 group"
+              >
+                <span>SCHEDULE A FREE CONSULTATION</span>
                 <ArrowRight
-                  className="ml-2 group-hover:translate-x-1 transition-transform"
                   size={20}
+                  className="group-hover:translate-x-1 transition-transform"
                 />
-              </Button>
+              </a>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const Services = () => {
       icon: Shield,
       title: "Wealth Protection",
       description:
-        "Comprehensive insurance and risk management solutions for peace of mind.",
+        "Comprehensive insurance coverage to safeguard your assets and future.",
       color: "accent",
     },
     {
@@ -30,86 +30,69 @@ const Services = () => {
       title: "Retirement Planning",
       description:
         "Build a corpus that ensures a comfortable and dignified retirement.",
-      color: "primary",
+      color: "secondary",
     },
     {
       icon: Briefcase,
       title: "Tax Optimization",
       description:
-        "Smart tax planning strategies to maximize your savings and investments.",
-      color: "accent",
+        "Smart tax strategies to maximize your savings and investments.",
+      color: "primary",
     },
     {
       icon: GraduationCap,
       title: "Education Funding",
       description:
         "Secure your children's future with dedicated education savings plans.",
-      color: "primary",
+      color: "accent",
     },
     {
       icon: HeartHandshake,
       title: "Estate Planning",
       description:
-        "Ensure your wealth is preserved and transferred according to your wishes.",
-      color: "accent",
+        "Preserve and transfer your wealth according to your wishes.",
+      color: "secondary",
     },
   ];
 
   const colorClasses = {
-    primary: {
-      bg: "bg-primary/10",
-      text: "text-primary",
-    },
-    accent: {
-      bg: "bg-accent/10",
-      text: "text-accent",
-    },
+    primary: "bg-primary/10 text-primary",
+    accent: "bg-accent/10 text-accent",
+    secondary: "bg-secondary/10 text-secondary",
   };
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-background-alt">
       <div className="container-custom">
         <SectionTitle
-          subtitle="Our Expertise"
-          title="Financial Blueprints for Every Stage"
-          description="Comprehensive solutions designed to address your unique financial needs and aspirations."
+          subtitle="What We Offer"
+          title="Our Financial Services"
+          description="Comprehensive solutions designed to address your unique financial needs."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const colors = colorClasses[service.color];
             return (
               <div
                 key={index}
-                className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group bg-white rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                {/* Glow Border Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-xl"></div>
+                <div
+                  className={`w-12 h-12 ${colorClasses[service.color]} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                >
+                  <Icon size={24} />
                 </div>
-
-                <div className="relative z-10">
-                  <div
-                    className={`w-16 h-16 ${colors.bg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className={colors.text} size={32} />
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="flex items-center text-accent font-medium group-hover:gap-2 transition-all">
-                    <span>Learn More</span>
-                    <ArrowRight
-                      size={18}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
-                  </div>
-                </div>
+                <h3 className="text-base sm:text-lg font-bold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-muted mb-3">{service.description}</p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-1 text-accent text-sm font-medium hover:gap-2 transition-all"
+                >
+                  Learn More <ArrowRight size={14} />
+                </a>
               </div>
             );
           })}
