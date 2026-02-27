@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import sebiLogo from "../assets/images/SEBI.png";
 import amfiLogo from "../assets/images/AMFI.svg";
 import nseLogo from "../assets/images/NSE.svg";
@@ -45,7 +45,7 @@ const TrustBar = () => {
 
       {/* Infinite Scroll Container */}
       <div className="relative overflow-hidden">
-        {/* Gradient Masks - for smooth fade in/out */}
+        {/* Gradient Smooth fade in/out */}
         <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
 
@@ -78,7 +78,7 @@ const TrustBar = () => {
         </div>
       </div>
 
-      {/* Add CSS animation */}
+      {/* CSS animation */}
       <style>{`
         @keyframes infiniteScroll {
           0% {
