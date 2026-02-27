@@ -4,23 +4,23 @@
 @import "tailwindcss";
 
 @theme {
-    /* Modern Premium Color Palette */
+    /* Color Palette */
     --color-primary: #1A2E3F;
-    /* Deep Navy - Trust, Authority */
+    /* Deep Navy*/
     --color-primary-light: #2C4256;
     /* Lighter Navy */
     --color-primary-dark: #0E1A26;
     /* Darkest Navy */
 
     --color-accent: #D94F2B;
-    /* Vibrant Terracotta - Energy, Warmth */
+    /* Vibrant Terracotta*/
     --color-accent-light: #E56E4A;
     /* Lighter Terracotta */
     --color-accent-dark: #B33E1F;
     /* Darker Terracotta */
 
     --color-secondary: #2B7A6B;
-    /* Emerald Teal - Growth, Wealth */
+    /* Emerald Teal*/
     --color-secondary-light: #3F9685;
     /* Lighter Emerald */
 
