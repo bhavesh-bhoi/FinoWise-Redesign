@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, LogIn } from "lucide-react";
 import Logo from "../assets/images/Logo.png";
+import ConsultationModal from "./ConsultationModal";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [logoError, setLogoError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,17 +18,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Lock scroll when drawer or modal open
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
+
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isModalOpen]);
 
   const navItems = [
     { name: "HOME", href: "#" },
@@ -81,8 +84,9 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Navbar */}
       <nav
-        className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
             : "bg-white py-3"
@@ -91,7 +95,7 @@ const Navbar = () => {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between">
-            {/* Logo with Image */}
+            {/* Logo */}
             <a href="#" className="flex items-center gap-2">
               {!logoError ? (
                 <img
@@ -129,7 +133,6 @@ const Navbar = () => {
                     )}
                   </a>
 
-                  {/* Dropdown */}
                   {item.hasDropdown && (
                     <div className="absolute top-full left-0 mt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
                       <div className="bg-white rounded-xl shadow-xl py-2 border border-gray-100">
@@ -149,7 +152,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right Section */}
+            {/* Desktop Right Section */}
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="#login"
@@ -158,15 +161,16 @@ const Navbar = () => {
                 <LogIn size={16} />
                 <span>LOGIN</span>
               </a>
-              <a
-                href="#consultation"
-                className="bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-accent-light transition-all hover:shadow-lg hover:shadow-accent/20"
+
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-accent text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-accent-light transition-all hover:shadow-lg hover:shadow-accent/20 cursor-pointer"
               >
                 Free Consultation
-              </a>
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center hover:bg-primary/10 transition-colors"
@@ -182,39 +186,26 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-30 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
+      {/* Mobile Drawer */}
       <div
-        className={`fixed right-0 top-0 h-full w-[280px] bg-white z-40 shadow-2xl transform transition-transform duration-300 lg:hidden ${
+        className={`fixed right-0 bg-white z-50 shadow-2xl transform transition-transform duration-300 lg:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ top: "40px" }}
+        style={{
+          top: "40px",
+          height: "calc(100vh - 40px)",
+          width: "280px",
+        }}
       >
-        <div className="p-5 overflow-y-auto h-full">
-          {/* Mobile Logo */}
-          <div className="mb-6">
-            {!logoError ? (
-              <img
-                src="https://finowise.in/wp-content/uploads/2023/01/Finowise-Logo-1.png"
-                alt="Finowise"
-                className="h-8 w-auto object-contain mb-1"
-              />
-            ) : (
-              <span className="text-xl font-bold font-display text-primary">
-                Finowise
-              </span>
-            )}
-            <span className="block text-[8px] text-accent mt-0.5">
-              BE WISE &gt; BE WEALTHY &gt; BE HAPPY
-            </span>
-          </div>
-
+        <div className="p-5 pt-3 overflow-y-auto h-full">
           <div className="space-y-1">
             {navItems.map((item) => (
               <div key={item.name}>
@@ -230,7 +221,9 @@ const Navbar = () => {
                   {item.hasDropdown && (
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-300 ${openDropdown === item.name ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-300 ${
+                        openDropdown === item.name ? "rotate-180" : ""
+                      }`}
                     />
                   )}
                 </button>
@@ -261,16 +254,24 @@ const Navbar = () => {
               <LogIn size={16} />
               <span>LOGIN</span>
             </a>
-            <a
-              href="#consultation"
-              className="block w-full bg-accent text-white py-2.5 rounded-full text-sm font-medium text-center hover:bg-accent-light transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
+
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="block w-full bg-accent text-white py-2.5 rounded-full text-sm font-medium text-center hover:bg-accent-light transition-colors cursor-pointer"
             >
               Free Consultation
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };
