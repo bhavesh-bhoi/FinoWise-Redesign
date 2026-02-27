@@ -86,7 +86,7 @@ const Footer = () => {
 
       <div className="container-custom pt-12 pb-6">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Company Info */}
           <div>
             <h3 className="text-white font-bold text-lg font-display mb-4">
@@ -172,7 +172,11 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h4 className="text-white font-semibold mt-6 mb-4">Legal</h4>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
               {legal.map((item) => (
                 <li key={item.name}>
