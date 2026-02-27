@@ -122,7 +122,7 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <a
                     href={item.href}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-accent/5 hover:text-accent transition-colors rounded-lg transition-all"
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-accent/5 hover:text-accent transition-colors rounded-lg"
                   >
                     {item.name}
                     {item.hasDropdown && (
