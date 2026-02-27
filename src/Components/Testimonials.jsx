@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Quote,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+} from "lucide-react";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -90,45 +97,48 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          {/* Testimonial Card */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl relative">
+          {/* Testimonial Card - Fixed Height */}
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl relative min-h-[320px] sm:min-h-[300px] md:min-h-[280px] flex items-center">
             {/* Quote Icon */}
             <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-8 h-8 sm:w-10 sm:h-10 bg-accent rounded-full flex items-center justify-center shadow-lg">
-              <Quote className="text-white" size={16} sm:size={18} />
+              <Quote className="text-white" size={16} />
             </div>
 
-            <div className="text-center">
-              {/* Rating */}
-              <div className="flex justify-center gap-1 mb-4">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    sm:size={18}
-                    className="text-accent fill-accent"
-                  />
-                ))}
-              </div>
+            <div className="w-full">
+              <div className="text-center">
+                {/* Rating */}
+                <div className="flex justify-center gap-1 mb-3">
+                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={16}
+                      className="text-accent fill-accent"
+                    />
+                  ))}
+                </div>
 
-              {/* Content */}
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonials[currentIndex].content}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center justify-center gap-3 sm:gap-4">
-                <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover ring-4 ring-accent/10"
-                />
-                <div className="text-left">
-                  <h4 className="font-bold text-sm sm:text-base text-primary">
-                    {testimonials[currentIndex].name}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-muted">
-                    {testimonials[currentIndex].role}
+                {/* Content - Fixed height with scroll if needed */}
+                <div className="min-h-[100px] sm:min-h-[90px] md:min-h-[80px] flex items-center justify-center mb-3">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed italic line-clamp-4 sm:line-clamp-3 md:line-clamp-2">
+                    "{testimonials[currentIndex].content}"
                   </p>
+                </div>
+
+                {/* Author */}
+                <div className="flex items-center justify-center gap-3 sm:gap-4 mt-2">
+                  <img
+                    src={testimonials[currentIndex].image}
+                    alt={testimonials[currentIndex].name}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-4 ring-accent/10"
+                  />
+                  <div className="text-left">
+                    <h4 className="font-bold text-xs sm:text-sm text-primary">
+                      {testimonials[currentIndex].name}
+                    </h4>
+                    <p className="text-[10px] sm:text-xs text-muted">
+                      {testimonials[currentIndex].role}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -143,7 +153,6 @@ const Testimonials = () => {
             >
               <ChevronLeft
                 size={16}
-                sm:size={18}
                 className="group-hover:-translate-x-0.5 transition-transform"
               />
             </button>
@@ -171,19 +180,28 @@ const Testimonials = () => {
             >
               <ChevronRight
                 size={16}
-                sm:size={18}
                 className="group-hover:translate-x-0.5 transition-transform"
               />
             </button>
           </div>
 
-          {/* Auto-play Indicator */}
-          <div className="text-center mt-4">
+          {/* Auto-play Indicator with Icons */}
+          <div className="flex justify-center mt-4">
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="text-xs text-muted hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-full shadow-sm hover:shadow-md transition-all text-xs text-muted hover:text-accent border border-gray-100"
             >
-              {isAutoPlaying ? "⏸️ Pause" : "▶️ Resume"} Auto-play
+              {isAutoPlaying ? (
+                <>
+                  <Pause size={14} className="text-accent" />
+                  <span>Pause Auto-play</span>
+                </>
+              ) : (
+                <>
+                  <Play size={14} className="text-accent" />
+                  <span>Resume Auto-play</span>
+                </>
+              )}
             </button>
           </div>
         </div>
