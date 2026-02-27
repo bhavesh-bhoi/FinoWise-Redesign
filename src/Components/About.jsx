@@ -31,6 +31,34 @@ const About = () => {
       highlight: "utmost integrity and dedication",
       color: "primary",
     },
+    {
+      icon: Users,
+      title:
+        "We are a team of dedicated professionals who are passionate about helping people achieve their financial goals",
+      highlight: "dedicated professionals",
+      color: "secondary",
+    },
+    {
+      icon: Zap,
+      title:
+        "We are committed to providing our clients with the best possible service",
+      highlight: "best possible service",
+      color: "accent",
+    },
+    {
+      icon: TrendingUp,
+      title:
+        "We are committed to providing our clients with the best possible service",
+      highlight: "best possible service",
+      color: "accent",
+    },
+    {
+      icon: Target,
+      title:
+        "We are committed to providing our clients with the best possible service",
+      highlight: "best possible service",
+      color: "accent",
+    },
   ];
 
   return (
