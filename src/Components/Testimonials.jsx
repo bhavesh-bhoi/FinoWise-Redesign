@@ -55,106 +55,154 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="section-padding bg-background-dark text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full filter blur-3xl"></div>
-      </div>
+    <section className="section-padding bg-[#0A1922] text-white relative overflow-hidden">
+      {/* Subtle textured overlay for depth - not too perfect */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 25% 0%, white 1px, transparent 1px), 
+                           radial-gradient(circle at 75% 100%, white 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      ></div>
+
+      {/* Organic gradient blobs - intentionally imperfect positioning */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-40 right-40 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
 
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
-          <Quote size={60} className="text-accent/30 mx-auto mb-6" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          {/* Quote icon with handcrafted feel */}
+          <div className="relative inline-block">
+            <Quote size={56} className="text-accent/90 mx-auto" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-12 h-12 bg-accent/5 rounded-full blur-xl"></div>
+            </div>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             What Our Clients Say
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+
+          {/* Hand-drawn style underline */}
+          <div className="flex justify-center mt-2">
+            <div className="w-200 h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+          </div>
+
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-6 font-light">
             Real stories from real people who trusted us with their financial
             future
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Testimonial Card */}
-          <div className="glass-card rounded-3xl p-8 md:p-12">
-            <div className="flex flex-col items-center text-center">
-              {/* Rating */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={20}
-                    className={
-                      i < testimonials[currentIndex].rating
-                        ? "text-accent fill-accent"
-                        : "text-gray-600"
-                    }
-                  />
-                ))}
-              </div>
+          {/* Testimonial Card*/}
+          <div
+            className="bg-[#0F1E2A] rounded-3xl p-8 md:p-12 min-h-[420px] flex items-center
+                        shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]
+                        border border-white/5 hover:border-white/10 transition-colors duration-700"
+          >
+            <div className="w-full">
+              <div className="flex flex-col items-center text-center">
+                {/* Rating with subtle glow */}
+                <div className="flex gap-1.5 mb-8">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={18}
+                      className={
+                        i < testimonials[currentIndex].rating
+                          ? "text-accent fill-accent drop-shadow-glow"
+                          : "text-gray-700"
+                      }
+                    />
+                  ))}
+                </div>
 
-              {/* Content */}
-              <p className="text-xl md:text-2xl text-gray-300 italic mb-8 leading-relaxed">
-                "{testimonials[currentIndex].content}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-accent"
-                />
-                <div className="text-left">
-                  <h4 className="font-bold text-lg">
-                    {testimonials[currentIndex].name}
-                  </h4>
-                  <p className="text-gray-400">
-                    {testimonials[currentIndex].role}
+                {/* Content with natural spacing */}
+                <div className="min-h-[140px] flex items-center justify-center px-4">
+                  <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-2xl">
+                    "{testimonials[currentIndex].content}"
                   </p>
+                </div>
+
+                {/* Author section with organic spacing */}
+                <div className="flex items-center gap-4 mt-10 pt-4 border-t border-white/5">
+                  <div className="relative">
+                    <img
+                      src={testimonials[currentIndex].image}
+                      alt={testimonials[currentIndex].name}
+                      className="w-14 h-14 rounded-full object-cover ring-2 ring-accent/30 ring-offset-2 ring-offset-[#0F1E2A]"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-accent rounded-full border-2 border-[#0F1E2A]"></div>
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg text-white">
+                      {testimonials[currentIndex].name}
+                    </h4>
+                    <p className="text-sm text-gray-400">
+                      {testimonials[currentIndex].role}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Navigation with organic feel */}
+          <div className="flex items-center justify-center gap-6 mt-10">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors group"
+              className="group relative w-12 h-12 rounded-full bg-white/5 hover:bg-accent/20 
+                       border border-white/10 hover:border-accent/30 
+                       transition-all duration-500 flex items-center justify-center
+                       hover:scale-110 active:scale-95"
               aria-label="Previous testimonial"
             >
               <ChevronLeft
                 size={20}
-                className="group-hover:-translate-x-1 transition-transform"
+                className="text-gray-400 group-hover:text-accent group-hover:-translate-x-0.5 transition-all"
               />
+              {/* Subtle ripple effect on hover */}
+              <span className="absolute inset-0 rounded-full bg-accent/0 group-hover:bg-accent/5 scale-0 group-hover:scale-150 transition-all duration-700"></span>
             </button>
+
+            {/* Dots with organic spacing */}
+            <div className="flex items-center gap-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`relative transition-all duration-700 ease-out
+                            ${
+                              index === currentIndex
+                                ? "w-10 h-2.5 bg-accent"
+                                : "w-2.5 h-2.5 bg-white/20 hover:bg-white/40"
+                            } rounded-full`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                >
+                  {/* Active indicator glow */}
+                  {index === currentIndex && (
+                    <span className="absolute inset-0 rounded-full bg-accent/20 blur-sm -z-10"></span>
+                  )}
+                </button>
+              ))}
+            </div>
+
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors group"
+              className="group relative w-12 h-12 rounded-full bg-white/5 hover:bg-accent/20 
+                       border border-white/10 hover:border-accent/30 
+                       transition-all duration-500 flex items-center justify-center
+                       active:scale-95"
               aria-label="Next testimonial"
             >
               <ChevronRight
                 size={20}
-                className="group-hover:translate-x-1 transition-transform"
+                className="text-gray-400 group-hover:text-accent group-hover:translate-x-0.5 transition-all"
               />
             </button>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "w-8 bg-accent"
-                    : "w-2 bg-white/20 hover:bg-white/40"
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
           </div>
         </div>
       </div>
