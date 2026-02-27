@@ -84,15 +84,24 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Navbar */}
+      {/* Navbar - Dynamic top positioning based on screen size */}
       <nav
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
             : "bg-white py-3"
         }`}
-        style={{ top: "40px" }}
+        style={{ top: "0px" }} // Default for mobile
       >
+        {/* Add responsive top spacing via CSS */}
+        <style>{`
+          @media (min-width: 1024px) {
+            nav.fixed {
+              top: 40px !important;
+            }
+          }
+        `}</style>
+
         <div className="container-custom">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -200,70 +209,73 @@ const Navbar = () => {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
-          top: "40px",
-          height: "calc(100vh - 40px)",
+          top: 0,
+          height: "100vh",
           width: "280px",
         }}
       >
-        <div className="p-5 pt-3 overflow-y-auto h-full">
-          <div className="space-y-1">
-            {navItems.map((item) => (
-              <div key={item.name}>
-                <button
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === item.name ? null : item.name,
-                    )
-                  }
-                  className="w-full flex items-center justify-between py-2.5 px-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
-                >
-                  <span className="font-medium text-sm">{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform duration-300 ${
-                        openDropdown === item.name ? "rotate-180" : ""
-                      }`}
-                    />
+        <div className="h-full flex flex-col">
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto p-5">
+            <div className="space-y-1">
+              {navItems.map((item) => (
+                <div key={item.name}>
+                  <button
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === item.name ? null : item.name,
+                      )
+                    }
+                    className="w-full flex items-center justify-between py-2.5 px-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+                  >
+                    <span className="font-medium text-sm">{item.name}</span>
+                    {item.hasDropdown && (
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${
+                          openDropdown === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </button>
+
+                  {item.hasDropdown && openDropdown === item.name && (
+                    <div className="pl-4 mt-1 space-y-1 border-l-2 border-gray-100 ml-3">
+                      {item.dropdown.map((dropItem) => (
+                        <a
+                          key={dropItem.name}
+                          href={dropItem.href}
+                          className="block py-2 px-3 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {dropItem.name}
+                        </a>
+                      ))}
+                    </div>
                   )}
-                </button>
+                </div>
+              ))}
+            </div>
 
-                {item.hasDropdown && openDropdown === item.name && (
-                  <div className="pl-4 mt-1 space-y-1 border-l-2 border-gray-100 ml-3">
-                    {item.dropdown.map((dropItem) => (
-                      <a
-                        key={dropItem.name}
-                        href={dropItem.href}
-                        className="block py-2 px-3 text-sm text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {dropItem.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+            <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
+              <a
+                href="#login"
+                className="flex items-center justify-center gap-2 w-full py-2.5 border border-primary/20 rounded-full text-primary font-medium text-sm hover:bg-primary/5 transition-colors"
+              >
+                <LogIn size={16} />
+                <span>LOGIN</span>
+              </a>
 
-          <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
-            <a
-              href="#login"
-              className="flex items-center justify-center gap-2 w-full py-2.5 border border-primary/20 rounded-full text-primary font-medium text-sm hover:bg-primary/5 transition-colors"
-            >
-              <LogIn size={16} />
-              <span>LOGIN</span>
-            </a>
-
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsModalOpen(true);
-              }}
-              className="block w-full bg-accent text-white py-2.5 rounded-full text-sm font-medium text-center hover:bg-accent-light transition-colors cursor-pointer"
-            >
-              Free Consultation
-            </button>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsModalOpen(true);
+                }}
+                className="block w-full bg-accent text-white py-2.5 rounded-full text-sm font-medium text-center hover:bg-accent-light transition-colors cursor-pointer"
+              >
+                Free Consultation
+              </button>
+            </div>
           </div>
         </div>
       </div>

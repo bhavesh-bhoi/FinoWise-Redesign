@@ -9,7 +9,7 @@ const TopBar = () => {
   ];
 
   return (
-    <div className="hidden lg:block bg-primary-dark text-white/90 text-sm py-2 fixed top-0 left-0 right-0 z-50">
+    <div className="hidden lg:block bg-primary-dark text-white/90 text-sm py-3 fixed top-0 left-0 right-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
