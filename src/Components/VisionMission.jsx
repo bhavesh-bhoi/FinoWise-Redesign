@@ -4,7 +4,7 @@ const VisionMission = () => {
   return (
     <section
       id="vision-mission"
-      className="section-padding bg-white relative overflow-hidden"
+      className="section-padding bg-background-alt relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">

@@ -30,7 +30,7 @@ const WorkshopGallery = () => {
       title: "Retirement Planning Masterclass",
       category: "Masterclass",
       image:
-        "https://images.unsplash.com/photo-1434626881859-194d67c2ad86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1624953336495-0b5af4d962f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UmV0aXJlbWVudCUyMFBsYW5uaW5nJTIwTWFzdGVyY2xhc3N8ZW58MHx8MHx8fDA%3D",
       date: "April 5, 2024",
       attendees: 28,
     },
@@ -62,7 +62,7 @@ const WorkshopGallery = () => {
   return (
     <section
       id="workshops"
-      className="section-padding bg-white overflow-hidden"
+      className="section-padding bg-background-alt overflow-hidden"
     >
       <div className="container-custom">
         <SectionTitle

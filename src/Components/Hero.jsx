@@ -8,7 +8,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-fit flex items-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-br from-background via-background to-background-alt">
+    <section className="relative min-h-fit flex items-center pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 sm:pb-16 overflow-hidden bg-background-alt">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-accent/5 rounded-full blur-3xl"></div>
