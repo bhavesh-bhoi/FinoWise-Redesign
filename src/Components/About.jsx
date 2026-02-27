@@ -81,7 +81,7 @@ const About = () => {
           </h2>
           <div className="flex items-center justify-center gap-2 mt-4">
             <span className="w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></span>
-            <p className="text-xl font-medium text-secondary">
+            <p className="text-md font-medium text-secondary md:text-xl">
               Be Wise &gt; Be WHealthy &gt; Be Happy
             </p>
             <span className="w-12 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></span>
