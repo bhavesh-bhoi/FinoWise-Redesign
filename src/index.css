@@ -295,3 +295,23 @@
         scrollbar-width: none;
     }
 }
+
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+.animate-infinite-scroll {
+    animation: infiniteScroll 30s linear infinite;
+    will-change: transform;
+}
+
+/* Pause on hover */
+.animate-infinite-scroll:hover {
+    animation-play-state: paused;
+}
